@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+		<h1>Lisa IA</h1>
+			<a href = '/changesys'></b>Personalisation</b></a>
+			<br>
+			<a href = '/logout'></b>Effacer le tous</b></a>
+			<script src="https://cdn.jsdelivr.net/npm/marked@3/marked.min.js"></script>
+			<script>
+				var sec = {{ data | tojson }};
+
+				for (var i=0;i<sec.length;i++)
+				{
+					const html = marked(sec[i]["content"]);
+
+					document.write("<p>"+sec[i]["role"] +": "+html+ "<p>");
+				}
+
+			</script>
+
+
+			<form action="/" method="POST">
+				<label form="description">Toi :</label>
+				<input type="text" id="description" name="description">
+				<button type="submit" class=cv_btn>Envoyé</button>
+
+			</form>
+	</body>
+</html>
