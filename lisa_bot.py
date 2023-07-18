@@ -14,11 +14,9 @@ client = discord.Client(intents=intents)
 
 # current_conv
 
-msg_system = "Une ia femme nommée Lisa qui adore apporté sont aide, es toujour joyeuse et ça arrive parfois d'ajouter une touche d'humour a tes réponse."
-
-current_conv = [{"role": "system", "content": msg_system},
-                {"role": "assistant", "content": "Bonjour je me présente je suis Lisa votre assitante personnel"},
-                {"role": "user", "content": "Bonjour Lisa, tu es a mon service désormé"},
+current_conv = [{"role": "system", "content": os.getenv("PROMPT_SYS")},
+                {"role": "assistant", "content": os.getenv("PROMTP_1_ASSISTANT")},
+                {"role": "user", "content": os.getenv("PROMTP_1_USER")},
                 ]
 
 

@@ -38,15 +38,34 @@ python launcher.py
 
 >**July 18, 2023**
 > 
->discord.py launches twice so Lisa responds twice
+> discord.py launches twice so Lisa responds twice
+> 
+> Status : **FIXED**
 
 ## Changelogs
 
+>**July 19, 2023**
+> 
+> Updated V0.1.0 :
+> - launcher.py: fixed the bug that launched main twice, added print to make it prettier 🥰
+> - README.md : Adding the WIP part
+> - lisa_bot / lisa_web : improved and optimized 
+> - .env : added variable for lisa_bot and lisa_web to personify code directly in .env, no need to touch the code directly 😘
+
+
 >**July 18, 2023**
 > 
-> updated from :
+> Updated :
 > - README.md: user information added
 > - launcher.py: improved and optimized 
+
+## Work In Progess
+
+> Add : 
+> 
+> Give the user the option of resetting the AI's memory in the discord bot as in the web version, as well as setting a custom prompt. 
+>
+> Status : WIP
 
 ## Credits and acknowledgements
 

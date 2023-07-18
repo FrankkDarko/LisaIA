@@ -2,15 +2,6 @@ import os
 import openai
 from datetime import timedelta
 from flask import Flask, redirect, render_template, request, url_for, Response, stream_with_context, session
-import time
-import threading
-
-"""
-import logging
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
-"""
-
 
 app = Flask(__name__)
 app.secret_key = os.urandom(30)
@@ -31,6 +22,7 @@ def generate_text(messages):
     output = response.choices[0].message.content.strip()
     return output
 
+
 @app.route('/logout')
 def logout():
     if 'system' in session.keys():
@@ -39,6 +31,7 @@ def logout():
         session['system'] = "You are a helpful assistant."
         session['data'] = [{"role": "system", "content": session['system']}, ]
     return redirect(url_for('chat'))
+
 
 @app.route('/changesys', methods=['GET', 'POST'])
 def changesys():
@@ -51,6 +44,7 @@ def changesys():
             session['data'] = [{"role": "system", "content": session['system']}, ]
             return redirect(url_for('chat'))
     return render_template('changesys.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def chat():
@@ -69,14 +63,14 @@ def chat():
                 session['data'] = messages
 
     else:
-        session[
-            'system'] = "Une ia femme nommée Lisa qui adore apporté sont aide, es toujour joyeuse et ça arrive parfois d'ajouter une touche d'humour a tes réponse."
+        session['system'] = os.getenv("PROMPT_SYS")
         session['data'] = [{"role": "system", "content": session['system']},
-                           {"role": "assistant", "content": "Bonjour je me présente je suis Lisa votre assitante personnel"},
-                           {"role": "user", "content": "Bonjour Lisa, tu es a mon service désormé"},
+                           {"role": "assistant", "content": os.getenv("PROMTP_1_ASSISTANT")},
+                           {"role": "user", "content": os.getenv("PROMTP_1_USER")},
                            ]
 
     return render_template('index.html', data=session['data'])
+
 
 """
 def starter():
