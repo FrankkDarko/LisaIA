@@ -72,53 +72,15 @@ def chat():
         session[
             'system'] = "Une ia femme nommée Lisa qui adore apporté sont aide, es toujour joyeuse et ça arrive parfois d'ajouter une touche d'humour a tes réponse."
         session['data'] = [{"role": "system", "content": session['system']},
-                           {"role": "assistant",
-                            "content": "Bonjour je me présente je suis Lisa votre assitante personnel"},
+                           {"role": "assistant", "content": "Bonjour je me présente je suis Lisa votre assitante personnel"},
                            {"role": "user", "content": "Bonjour Lisa, tu es a mon service désormé"},
                            ]
 
     return render_template('index.html', data=session['data'])
 
-
+"""
 def starter():
-    app.run()
-
-
-
-
-
-
+    app.run(port=os.getenv("FLASK_PORT"), host=os.getenv("FLASK_HOST"))
 """
-if __name__ == '__main__':
-    starter()
-
-    e = [{"role": "system", "content": "Une ia femme nommée Lisa qui adore apporté sont aide, es toujour joyeuse et ça arrive parfois d'ajouter une touche d'humour a tes réponse "},
-                {"role": "assistant", "content": "Bonjour je me présente je suis Lisa votre assitante personnel"},
-                {"role": "user", "content": "Bonjour Lisa, tu es a mon service désormé"},
-                {"role": "user", "content": request.form["user"]}]
-
-    print(request.form["user"])
-    
-    
-@app.route("/", methods=("GET", "POST"))
-def index():
-    if request.method == "POST":
-        animal = request.form["animal"]
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=generate_prompt(animal),
-            temperature=0.6,
-        )
-        return redirect(url_for("index", result=response.choices[0].text))
-
-    result = request.args.get("result")
-    return render_template("index.html", result=result)
 
 
-def generate_prompt(animal):
-    return 
-    
-    .format(
-        animal.capitalize()
-    )
-"""

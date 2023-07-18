@@ -43,11 +43,12 @@ async def on_ready():
 # Verif User and reply to them
 @client.event
 async def on_message(message):
+    my_id = int(os.getenv("DISCORD_ID"))
 
     if message.author == client.user:
         return
 
-    if message.author.id == 200549635067084800:
+    if message.author.id == my_id:
         msg = message.content
         msg = str(msg)
         current_conv.append({"role": "user", "content": msg})
@@ -56,8 +57,5 @@ async def on_message(message):
         await message.reply(reply, mention_author=True)
 
 
-# Start the bot
-def starter():
-    client.run(token)
 
 
