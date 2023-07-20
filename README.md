@@ -20,11 +20,7 @@ To customize most of the code, you can base it on .env.example
 
 Start by renaming it to ".env" or copying it under this name - everything is detailed in the comments.
 
-As for prompts :
-
-- in lisa_web.py: line 73,75,76
-
-- in lisa_bot.py: line 17,20,21
+As for promptsn ckeck directly the .env on part "Open IA / Prompts"
 
 ## How to launch Lisa AI
 
