@@ -41,6 +41,7 @@ python launcher.py
 > discord.py launches twice so Lisa responds twice
 > 
 > Status : **FIXED**
+> ID : B-0-0-1-A
 
 ## Changelogs
 
@@ -74,3 +75,10 @@ I would like to mention here the sources I used and the people who helped me.
 >For the lisa_web GUI, I used @RuifMaxx's code.
 >
 >https://github.com/RuifMaxx/ChatGPT-API-WebUI
+
+> Big Thanks : @XenorDoz 
+> 
+> He helps me to correct English mistakes and also helps me to correct :
+> 
+> - Bug id ID : B-0-0-1-A
+
