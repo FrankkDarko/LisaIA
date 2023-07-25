@@ -37,6 +37,7 @@ python launcher.py
 > discord.py launches twice so Lisa responds twice
 > 
 > Status : **FIXED**
+> 
 > ID : B-0-0-1-A
 
 ## Changelogs
