@@ -41,6 +41,12 @@ python launcher.py
 
 ## Changelogs
 
+>**July 25, 2023**
+> 
+> Updated V0.1.1 :
+> - lisa_bot : added a function for resting the ia (memory erase) with the `!reset` command
+
+
 >**July 19, 2023**
 > 
 > Updated V0.1.0 :

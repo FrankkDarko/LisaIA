@@ -26,7 +26,7 @@ def chatgpt_reply(conv):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=conv,
-        max_tokens=350
+        max_tokens=650
     )
 
     return completion['choices'][0]['message']['content']
@@ -41,6 +41,7 @@ async def on_ready():
 # Verif User and reply to them
 @client.event
 async def on_message(message):
+    global current_conv
     my_id = int(os.getenv("DISCORD_ID"))
 
     if message.author == client.user:
@@ -54,6 +55,10 @@ async def on_message(message):
         current_conv.append({"role": "assistant", "content": reply})
         await message.reply(reply, mention_author=True)
 
-
+    if message.content == "!reset":
+        current_conv = [{"role": "system", "content": os.getenv("PROMPT_SYS")},
+                        {"role": "assistant", "content": os.getenv("PROMTP_1_ASSISTANT")},
+                        {"role": "user", "content": os.getenv("PROMTP_1_USER")},
+                        ]
 
 
